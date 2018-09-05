@@ -14,3 +14,7 @@ rm ~/.vimrc
 
 echo '=== SYMLINK to ~/.vimrc'
 ln -s ~/vimrc/.vimrc ~/.vimrc
+
+echo '=== Reload ~/.vimrc'
+source ~/.vimrc
+sleep 2
