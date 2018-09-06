@@ -7,7 +7,9 @@ Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree'
 Plug 'pearofducks/ansible-vim'
 Plug 'gioele/vim-autoswap'
-
+" colorscheme
+Plug 'ksmithbaylor/tomorrow-theme', { 'rtp': 'vim' }
+"Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 " <!--/Vim-Plug Settings-->
@@ -35,3 +37,10 @@ nnoremap ; :
 "set mouse=a
 
 " <!--/Key Mappings-->
+
+"colorscheme: tomorrow-night
+
+" Include custom aliases
+if filereadable($HOME . "/.dotfiles/.vimrc.local")
+  source ~/.dotfiles/.vimrc.local
+endif
