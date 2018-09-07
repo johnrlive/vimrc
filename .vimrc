@@ -1,20 +1,23 @@
-" <!--Vim-Plug Settings-->
+" ===Vim-Plug Settings===
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
-
 " Declare the list of plugins.
+" DevOps
+Plug 'pearofducks/ansible-vim'
+Plug 'm-kat/aws-vim'
+Plug 'hashivim/vim-terraform'
+" Other
+Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree'
-Plug 'pearofducks/ansible-vim'
 Plug 'gioele/vim-autoswap'
-" colorscheme
-Plug 'ksmithbaylor/tomorrow-theme', { 'rtp': 'vim' }
-"Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
+" Colorscheme
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-" <!--/Vim-Plug Settings-->
+" ===/Vim-Plug Settings===
 
-" <!--NerdTree Settings-->
+" ===NerdTree Settings===
 " How can I open a NERDTree automatically when vim starts up if no files were specified?
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -26,21 +29,30 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 map <return> :NERDTreeToggle<CR>
 " <!--/NerdTree Settings-->
 
-" <!--HardTime Settings-->
+" === HardTime Settings ===
 let g:hardtime_default_on = 1
 
-" <!--Key Mappings-->
+
+" ===Key Mappings===
 " no need for <SHIFT> colon
 nnoremap ; :
+" ===/Key Mappings===
 
+
+" ===General Settings===
 " To enable mouse uncomment line below
 "set mouse=a
+syntax on
+set t_Co=256
+set cursorline
+colorscheme onehalfdark
+let g:airline_theme='onehalflight'
+" lightline
+" let g:lightline.colorscheme='onehalfdark'
+" ===/General Settings===
 
-" <!--/Key Mappings-->
 
-"colorscheme: tomorrow-night
-
-" Include custom aliases
+" ===Include custom vimrc===
 if filereadable($HOME . "/.dotfiles/.vimrc.local")
   source ~/.dotfiles/.vimrc.local
 endif
