@@ -56,6 +56,6 @@ let g:airline_theme='onehalflight'
 
 
 " ===Include custom vimrc===
-if filereadable($HOME . "/.dotfiles/.vimrc.local")
-  source ~/.dotfiles/.vimrc.local
+if filereadable($HOME . "~/.vimrc.local")
+  source ~/.vimrc.local
 endif
