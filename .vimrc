@@ -3,21 +3,25 @@
 call plug#begin('~/.vim/plugged')
 " Declare the list of plugins.
 " DevOps
-Plug 'pearofducks/ansible-vim'
 Plug 'm-kat/aws-vim'
-Plug 'hashivim/vim-terraform'
 " Other
-"Plug 'majutsushi/tagbar'
+Plug 'junegunn/goyo.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'airblade/vim-gitgutter'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree'
 Plug 'gioele/vim-autoswap'
-" Vim HardTime
-Plug 'takac/vim-hardtime'
+Plug 'sheerun/vim-polyglot'
 " Colorscheme
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'rafi/awesome-vim-colorschemes'
+"Plug 'mhartington/oceanic-next'
+" Vim Styling
+Plug 'itchyny/lightline.vim'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 " ===/Vim-Plug Settings===
+
 
 " ===NerdTree Settings===
 " How can I open a NERDTree automatically when vim starts up if no files were specified?
@@ -30,32 +34,68 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Toggle NerdTree with 'return' key
 map <return> :NERDTreeToggle<CR>
-" <!--/NerdTree Settings-->
-
-" === HardTime Settings ===
-let g:hardtime_default_on = 1
+" ===/NerdTree Settings===
 
 
 " ===Key Mappings===
+" Leader Key
+let mapleader = ','
 " no need for <SHIFT> colon
 nnoremap ; :
+
+" ===Vim Multiple Cursor===
+let g:multi_cursor_use_default_mapping=0
+" Default mapping
+let g:multi_cursor_start_word_key      = '<C-n>'
+let g:multi_cursor_select_all_word_key = '<A-n>'
+let g:multi_cursor_start_key           = 'g<C-n>'
+let g:multi_cursor_select_all_key      = 'g<A-n>'
+let g:multi_cursor_next_key            = '<C-n>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
 " ===/Key Mappings===
+
+
+" ===Theme Settings===
+" lightline
+let g:lightline= { 'colorscheme': 'OceanicNext' }
+" = Theme Settings - Oceanic
+ syntax enable
+" for vim 7
+"set t_Co=256
+
+" for vim 8
+ if (has("termguicolors"))
+  set termguicolors
+ endif
+colorscheme OceanicNext
+" ===/Theme Settings===
 
 
 " ===General Settings===
 " To enable mouse uncomment line below
 "set mouse=a
+"set number
 syntax on
-set t_Co=256
+set ruler
 set cursorline
-colorscheme onehalfdark
-let g:airline_theme='onehalflight'
-" lightline
-" let g:lightline.colorscheme='onehalfdark'
+" Switch between the last two files
+nnoremap <Leader><Leader> <C-^>
+" Get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+" === Ident Guides ===
+let g:indent_guides_guide_size = 1
+let g:indent_guides_color_change_percent = 3
+let g:indent_guides_enable_on_vim_startup = 1
 " ===/General Settings===
 
 
-" ===Include custom vimrc===
+" ===Custom .vimrc.local===
 if filereadable($HOME . "~/.vimrc.local")
   source ~/.vimrc.local
 endif
+" ==/Custom .vimrc.local===
