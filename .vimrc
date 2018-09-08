@@ -5,6 +5,9 @@ call plug#begin('~/.vim/plugged')
 " DevOps
 Plug 'm-kat/aws-vim'
 " Other
+Plug 'romgrk/winteract.vim'
+Plug 'ap/vim-buftabline'
+Plug 't9md/vim-choosewin'
 Plug 'junegunn/goyo.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'airblade/vim-gitgutter'
@@ -21,7 +24,11 @@ Plug 'itchyny/lightline.vim'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 " ===/Vim-Plug Settings===
+"set hidden
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
 
+nmap <leader>w        :InteractiveWindow<CR>
 
 " ===NerdTree Settings===
 " How can I open a NERDTree automatically when vim starts up if no files were specified?
@@ -39,7 +46,7 @@ map <return> :NERDTreeToggle<CR>
 
 " ===Key Mappings===
 " Leader Key
-let mapleader = ','
+let mapleader = '\'
 " no need for <SHIFT> colon
 nnoremap ; :
 
@@ -54,12 +61,14 @@ let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
+" ===VIM CHOOSEWIN===
+nmap  -  <Plug>(choosewin)
 " ===/Key Mappings===
 
 
 " ===Theme Settings===
 " lightline
-let g:lightline= { 'colorscheme': 'OceanicNext' }
+"let g:lightline= { 'colorscheme': 'OceanicNext' }
 " = Theme Settings - Oceanic
  syntax enable
 " for vim 7
@@ -83,10 +92,10 @@ set cursorline
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
 " Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+"nnoremap <Left> :echoe "Use h"<CR>
+"nnoremap <Right> :echoe "Use l"<CR>
+"nnoremap <Up> :echoe "Use k"<CR>
+"nnoremap <Down> :echoe "Use j"<CR>
 " === Ident Guides ===
 let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 3
