@@ -1,10 +1,8 @@
-" ===Vim-Plug Settings===
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 " Declare the list of plugins.
-" DevOps
 Plug 'm-kat/aws-vim'
-" Other
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'romgrk/winteract.vim'
 Plug 'ap/vim-buftabline'
 Plug 't9md/vim-choosewin'
@@ -16,21 +14,19 @@ Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree'
 Plug 'gioele/vim-autoswap'
 Plug 'sheerun/vim-polyglot'
+Plug 'itchyny/lightline.vim'
 " Colorscheme
 Plug 'rafi/awesome-vim-colorschemes'
-"Plug 'mhartington/oceanic-next'
-" Vim Styling
-Plug 'itchyny/lightline.vim'
-" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-" ===/Vim-Plug Settings===
+
 "set hidden
-nnoremap <C-N> :bnext<CR>
+"nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
+"WinInteract 
 nmap <leader>w        :InteractiveWindow<CR>
 
-" ===NerdTree Settings===
+"NerdTREE
 " How can I open a NERDTree automatically when vim starts up if no files were specified?
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -41,16 +37,16 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Toggle NerdTree with 'return' key
 map <return> :NERDTreeToggle<CR>
-" ===/NerdTree Settings===
 
 
-" ===Key Mappings===
+"Key Mappings
 " Leader Key
 let mapleader = '\'
 " no need for <SHIFT> colon
 nnoremap ; :
 
-" ===Vim Multiple Cursor===
+
+"Vim Multiple Cursor
 let g:multi_cursor_use_default_mapping=0
 " Default mapping
 let g:multi_cursor_start_word_key      = '<C-n>'
@@ -65,21 +61,21 @@ let g:multi_cursor_quit_key            = '<Esc>'
 nmap  -  <Plug>(choosewin)
 " ===/Key Mappings===
 
+"tmux
+set t_Co=256
 
 " ===Theme Settings===
 " lightline
 "let g:lightline= { 'colorscheme': 'OceanicNext' }
-" = Theme Settings - Oceanic
- syntax enable
-" for vim 7
-"set t_Co=256
 
+
+" = Theme Settings - Oceanic
+syntax enable
 " for vim 8
- if (has("termguicolors"))
-  set termguicolors
- endif
+"if (has("termguicolors"))
+" set termguicolors
+"endif
 colorscheme OceanicNext
-" ===/Theme Settings===
 
 
 " ===General Settings===
