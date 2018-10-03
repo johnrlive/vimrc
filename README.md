@@ -1,4 +1,28 @@
-# My Vim setup
+# VIM Mappings Cheat Sheet
+
+## 
+
+## for fuzzy finder
+- `<ctrl-f>` => runs :Files in vim
+- `<ctrl-b>` => runs :Buffers in vim
+
+## for RipGrep
+- `<ctrl-g>` => runs :Rg in vim
+
+## for Undo & Redo
+- `<ctrl-z>` => runs :undo in vim
+- `<ctrl-y>` => runs :redo in vim
+
+## vim-choosewin
+- `-` => indicates vim window
+
+## vim-tmux-navigator
+- `<ctrl-h>` => Left
+- `<ctrl-j>` => Down
+- `<ctrl-k>` => Up
+- `<ctrl-l>` => Right
+- `<ctrl-\>` => Previous split
+
 
 ## Clone Repo into Home directory
 ```
