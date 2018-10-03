@@ -49,8 +49,16 @@ map <return> :NERDTreeToggle<CR>
 " Leader Key
 let mapleader = '\'
 
-" Fuzzy Finder mapping for ctrl+p
-nnoremap <C-p> :Files<Cr>
+" Fuzzy Finder Mappings
+nnoremap <C-f> :Files<Cr>
+nnoremap <C-b> :Buffers<Cr>
+
+" RipGrep mapping g
+nnoremap <C-g> :Rg<Cr>
+
+" Undo
+nnoremap <C-z> :undo<Cr>
+nnoremap <C-y> :redo<Cr>
 
 " no need for <SHIFT> colon
 nnoremap ; :
