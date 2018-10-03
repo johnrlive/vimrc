@@ -15,6 +15,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'gioele/vim-autoswap'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
+" Fuzzy Finder
+Plug 'junegunn/fzf.vim'
+" If installed using Homebrew uncomment line below
+	Plug '/usr/local/opt/fzf'
+" Else installed using git uncomment line below
+	"Plug '~/.fzf'
 " Colorscheme
 Plug 'rafi/awesome-vim-colorschemes'
 call plug#end()
@@ -42,6 +48,10 @@ map <return> :NERDTreeToggle<CR>
 "Key Mappings
 " Leader Key
 let mapleader = '\'
+
+" Fuzzy Finder mapping for ctrl+p
+nnoremap <C-p> :Files<Cr>
+
 " no need for <SHIFT> colon
 nnoremap ; :
 
