@@ -1,9 +1,13 @@
 #!/bin/bash
 
-echo 'MAC Install VIM'
-brew update && brew install vim fzf
+echo '============================================================'
+echo 'MAC Install VIM, FuzzyFinder, RipGrep'
+echo '============================================================'
+brew update && brew install vim fzf ripgrep
 
+echo '============================================================'
 echo 'Step 2: Setup VIM'
+echo '============================================================'
 sh vim_setup.sh
 
 echo '============================================================'
