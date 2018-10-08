@@ -49,6 +49,10 @@ map <return> :NERDTreeToggle<CR>
 " Leader Key
 let mapleader = '\'
 
+" BufTabLine
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
+
 " Fuzzy Finder Mappings
 nnoremap <C-f> :Files<Cr>
 nnoremap <C-b> :Buffers<Cr>
@@ -62,6 +66,11 @@ nnoremap <C-y> :redo<Cr>
 
 " no need for <SHIFT> colon
 nnoremap ; :
+
+" Tab spacing
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+setlocal tabstop=2
+set shiftwidth=2
 
 
 "Vim Multiple Cursor

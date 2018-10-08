@@ -9,6 +9,10 @@
 ## for RipGrep
 - `<ctrl-g>` => runs :Rg in vim
 
+## for BufTabLine scrolling through tab
+- `<ctrl-n>` => runs :bnext
+- `<crtl-p>` => runs  :bprev
+
 ## for Undo & Redo
 - `<ctrl-z>` => runs :undo in vim
 - `<ctrl-y>` => runs :redo in vim
