@@ -11,7 +11,7 @@
 
 ## for BufTabLine scrolling through tab
 - `<ctrl-n>` => runs :bnext
-- `<crtl-p>` => runs  :bprev
+- `<crtl-p>` => runs :bprev
 
 ## for Undo & Redo
 - `<ctrl-z>` => runs :undo in vim

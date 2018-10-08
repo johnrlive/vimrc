@@ -25,10 +25,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'rafi/awesome-vim-colorschemes'
 call plug#end()
 
-"set hidden
-"nnoremap <C-N> :bnext<CR>
-nnoremap <C-P> :bprev<CR>
-
 "WinInteract 
 nmap <leader>w        :InteractiveWindow<CR>
 
@@ -50,7 +46,8 @@ map <return> :NERDTreeToggle<CR>
 let mapleader = '\'
 
 " BufTabLine
-nnoremap <C-N> :bnext<CR>
+set hidden
+nnoremap <C-n> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
 " Fuzzy Finder Mappings
