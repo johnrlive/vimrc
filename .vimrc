@@ -39,7 +39,8 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Toggle NerdTree with 'return' key
 map <return> :NERDTreeToggle<CR>
-
+" Move to NerdTree to the right
+let g:NERDTreeWinPos = "right"
 
 "Key Mappings
 " Leader Key
@@ -47,7 +48,7 @@ let mapleader = '\'
 
 " BufTabLine
 set hidden
-nnoremap <C-n> :bnext<CR>
+nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
 " Fuzzy Finder Mappings
