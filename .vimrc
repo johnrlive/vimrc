@@ -15,7 +15,11 @@ Plug 'scrooloose/nerdtree'
 Plug 'gioele/vim-autoswap'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
-Plug 'vim-syntastic/syntastic'
+Plug 'jiangmiao/auto-pairs'
+Plug 'w0rp/ale'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
 " Fuzzy Finder
 Plug 'junegunn/fzf.vim'
