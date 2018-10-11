@@ -15,15 +15,32 @@ Plug 'scrooloose/nerdtree'
 Plug 'gioele/vim-autoswap'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
 " Fuzzy Finder
 Plug 'junegunn/fzf.vim'
 " If installed using Homebrew uncomment line below
-	Plug '/usr/local/opt/fzf'
+Plug '/usr/local/opt/fzf'
 " Else installed using git uncomment line below
-	"Plug '~/.fzf'
+" Plug '~/.fzf'
+" Autocomplete 
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 " Colorscheme
 Plug 'rafi/awesome-vim-colorschemes'
 call plug#end()
+
+"Key Mappings
+" Leader Key
+let mapleader = ','
+"let mapleader = '\'
+
 
 "WinInteract 
 nmap <leader>w        :InteractiveWindow<CR>
@@ -38,13 +55,10 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " How can I close vim if the only window left open is a NERDTree?
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Toggle NerdTree with 'return' key
-map <return> :NERDTreeToggle<CR>
+map \ :NERDTreeToggle<CR>
 " Move to NerdTree to the right
 let g:NERDTreeWinPos = "right"
 
-"Key Mappings
-" Leader Key
-let mapleader = '\'
 
 " BufTabLine
 set hidden
@@ -55,8 +69,10 @@ nnoremap <C-P> :bprev<CR>
 nnoremap <C-f> :Files<Cr>
 nnoremap <C-b> :Buffers<Cr>
 
+" Grepper
+nnoremap <C-r> :Grepper<CR>
 " RipGrep mapping g
-nnoremap <C-g> :Rg<Cr>
+nnoremap <leader>r :Rg<Cr>
 
 " Undo
 nnoremap <C-z> :undo<Cr>
@@ -70,6 +86,8 @@ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 setlocal tabstop=2
 set shiftwidth=2
 
+" Show matching brackets use % to navigate
+set showmatch
 
 "Vim Multiple Cursor
 let g:multi_cursor_use_default_mapping=0

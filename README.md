@@ -6,8 +6,8 @@
 - `<ctrl-f>` => runs :Files in vim
 - `<ctrl-b>` => runs :Buffers in vim
 
-## for RipGrep
-- `<ctrl-g>` => runs :Rg in vim
+## for Grepper (rip-grep)
+- `<ctrl-g>` => runs :Grepper in vim
 
 ## for BufTabLine scrolling through tab
 - `<ctrl-n>` => runs :bnext
