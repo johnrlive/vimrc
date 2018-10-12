@@ -14,12 +14,12 @@ Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree'
 Plug 'gioele/vim-autoswap'
 Plug 'sheerun/vim-polyglot'
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'w0rp/ale'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+"Plug 'prettier/vim-prettier', {
+"  \ 'do': 'yarn install',
+"  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
 " Fuzzy Finder
 Plug 'junegunn/fzf.vim'
@@ -35,10 +35,12 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-let g:deoplete#enable_at_startup = 1
 " Colorscheme
 Plug 'rafi/awesome-vim-colorschemes'
 call plug#end()
+
+" Enable Deoplete
+let g:deoplete#enable_at_startup = 1
 
 "Key Mappings
 " Leader Key
@@ -111,12 +113,8 @@ nmap  -  <Plug>(choosewin)
 "tmux
 set t_Co=256
 
-" ===Theme Settings===
-" lightline
-"let g:lightline= { 'colorscheme': 'OceanicNext' }
 
-
-" = Theme Settings - Oceanic
+"==== Theme Settings - Oceanic
 syntax enable
 " for vim 8
 "if (has("termguicolors"))
@@ -126,6 +124,24 @@ colorscheme OceanicNext
 
 
 " ===General Settings===
+" enable ale
+let g:ale_completion_enabled = 1
+let g:ale_sign_column_always = 1
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'], 
+\   'typescript': ['prettier'],
+\   'scss': ['prettier'], 
+\   'json': ['prettier'], 
+\   'graphql': ['prettier'], 
+\   'markdown': ['prettier'], 
+\   'elixir': ['credo'],
+\   'python': ['autopep8'],
+\}
+
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+
 " To enable mouse uncomment line below
 "set mouse=a
 "set number
