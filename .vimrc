@@ -17,6 +17,19 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'w0rp/ale'
+
+" Language support
+"Plug 'alvan/vim-closetag'											" Auto close (X)HTML tags
+"Plug 'othree/html5.vim'                       " HTML5 omnicomplete and syntax
+"Plug 'plasticboy/vim-markdown'                " Markdown support
+"Plug 'JamshedVesuna/vim-markdown-preview'     " Preview markdown
+"Plug 'elixir-editors/vim-elixir'              " Elixir language support.
+"Plug 'slashmili/alchemist.vim'                " Elixir language support
+
+
+" Test Plugins
+" Plug 'janko-m/vim-test' "https://github.com/janko-m/vim-test
+
 "Plug 'prettier/vim-prettier', {
 "  \ 'do': 'yarn install',
 "  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
@@ -28,16 +41,19 @@ Plug '/usr/local/opt/fzf'
 " Else installed using git uncomment line below
 " Plug '~/.fzf'
 " Autocomplete 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+"if has('nvim')
+"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+"  Plug 'Shougo/deoplete.nvim'
+"  Plug 'roxma/nvim-yarp'
+"  Plug 'roxma/vim-hug-neovim-rpc'
+"endif
 " Colorscheme
 Plug 'rafi/awesome-vim-colorschemes'
 call plug#end()
+
+" Bugfix https://github.com/vim/vim/issues/2329
+set bt=
 
 " Enable Deoplete
 let g:deoplete#enable_at_startup = 1
@@ -115,12 +131,12 @@ set t_Co=256
 
 
 "==== Theme Settings - Oceanic
+colorscheme OceanicNext
 syntax enable
 " for vim 8
-"if (has("termguicolors"))
-" set termguicolors
-"endif
-colorscheme OceanicNext
+if (has("termguicolors"))
+	set termguicolors
+endif
 
 
 " ===General Settings===
