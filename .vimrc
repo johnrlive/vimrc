@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 " Declare the list of plugins.
 Plug 'm-kat/aws-vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'romgrk/winteract.vim'
 Plug 'ap/vim-buftabline'
 Plug 't9md/vim-choosewin'
 Plug 'junegunn/goyo.vim'
@@ -98,21 +97,33 @@ set shiftround                 " >> indents to next multiple of 'shiftwidth'
 set expandtab                  " Use spaces instead of tabs.
 set autoindent                 " Indent according to previous line.
 set backspace=indent,eol,start " Make backspace work as you would expect.
+set ruler                      " Show current position
+set cursorline
 
 " appearance
-set showmatch
+set showmatch                  " Show matching brackets when text indicator is over the
 set display+=lastline          " Show as much as possible of the last line.
 set showmode                   " Show current mode in command-line.
 set showcmd                    " Show already typed keys when more are expected.
 set ttyfast                    " Faster redrawing.
-"set number relativenumber      " Turn on relative line numbers
+set number                     " Turn on relative line numbers
 set laststatus=2               " Always display the status line
 set switchbuf=usetab           " on open buffer search everywhere
+set hid                        " A buffer becomes when it is abandon
+set cmdheight=2                " Height of the command bar
+set foldcolumn=0               " Add a bit extra margin to the left
+
 
 " searching
 set hlsearch                   " highlight search items
 set ignorecase                 " case-insensitive searches
 set smartcase                  " ignore case
+
+" Turn backup off
+set nobackup
+set nowb
+set noswapfile
+
 
 " Bugfix https://github.com/vim/vim/issues/2329
 set bt=
@@ -120,12 +131,68 @@ set bt=
 " Enable Deoplete
 let g:deoplete#enable_at_startup = 1
 
-"Key Mappings
+""""""" Key Mappings """"""""
 " Leader Key
 let mapleader = ','
+" Fast saving
+nmap <leader>w :w!<cr>
 
-"WinInteract 
-nmap <leader>w        :InteractiveWindow<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Moving around, tabs, windows and buffers
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
+map <space> /
+map <c-space> ?
+
+" Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
+
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Close the current buffer
+map <leader>bd :Bclose<cr>:tabclose<cr>gT
+
+" Close all the buffers
+map <leader>ba :bufdo bd<cr>
+
+map <leader>l :bnext<cr>
+map <leader>h :bprevious<cr>
+
+" Useful mappings for managing tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove 
+map <leader>t :tabnext<cr> 
+
+" Let 'tl' toggle between this and the last accessed tab
+let g:lasttab = 1
+nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
+
+
+" Opens a new tab with the current buffer's path
+" Super useful when editing files in the same directory
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+
+" Switch CWD to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+" Specify the behavior when switching between buffers 
+try
+  set switchbuf=useopen,usetab,newtab
+  set stal=2
+catch
+endtry
+
+" Return to last edit position when opening files (You want this!)
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 
 "NerdTREE
 " How can I open a NERDTree automatically when vim starts up if no files were specified?
@@ -236,10 +303,7 @@ let g:airline#extensions#ale#enabled = 1
 
 " To enable mouse uncomment line below
 "set mouse=a
-"set number
 syntax on
-set ruler
-set cursorline
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
 " Get off my lawn
