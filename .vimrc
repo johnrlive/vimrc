@@ -16,67 +16,56 @@ Plug 'gioele/vim-autoswap'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'jiangmiao/auto-pairs'
-Plug 'w0rp/ale'                               " Language Linter
 Plug 'cohama/lexima.vim' 
 
 " Language support
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'alvan/vim-closetag'	              	    " Auto close (X)HTML tags
 Plug 'othree/html5.vim'                       " HTML5 omnicomplete and syntax
 Plug 'plasticboy/vim-markdown'                " Markdown support
 Plug 'JamshedVesuna/vim-markdown-preview'     " Preview markdown
+
+" Elixir Support
+Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 Plug 'elixir-editors/vim-elixir'              " Elixir language support
-Plug 'slashmili/alchemist.vim'                " Elixir language support
-Plug 'ElmCast/elm-vim'                        " Elm language support
-Plug 'SirVer/ultisnips'
+
+" Python Support
+""Plug 'vim-syntastic/syntastic'
 
 " Javascript support
-Plug 'elzr/vim-json'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'mattn/emmet-vim'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+"""Plug 'elzr/vim-json'
+"""Plug 'pangloss/vim-javascript'
+"""Plug 'mattn/emmet-vim'
 
 " Test Plugins
-Plug 'janko-m/vim-test' "https://github.com/janko-m/vim-test
+Plug 'vim-test/vim-test'
 
-" Search
+"Search
 Plug 'romainl/vim-cool'
 Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
 " Fuzzy Finder
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
 " If installed using Homebrew uncomment line below
-Plug '/usr/local/opt/fzf'
+"Plug '/usr/local/opt/fzf'
 " Else installed using git uncomment line below
-" Plug '~/.fzf'
-" Autocomplete 
-"if has('nvim')
-"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"else
-"  Plug 'Shougo/deoplete.nvim'
-"  Plug 'roxma/nvim-yarp'
-"  Plug 'roxma/vim-hug-neovim-rpc'
-"endif
+"Plug '~/.fzf'
+
 " Colorschemes
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'liuchengxu/space-vim-dark'
 "Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
+" Coc Plugin commands to run in vim mode
+" :CocInstall coc-prettier
 
-" Emmet Settings for JSX
-let g:user_emmet_leader_key='<Tab>'
-let g:user_emmet_settings = {
-  \  'javascript.jsx' : {
-  \      'extends' : 'jsx',
-  \  },
-  \}
+" Setup Prettier coc plugin
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
-" Ale Settings
-let g:ale_sign_error = '●' " Less aggressive than the default '>>'
-let g:ale_sign_warning = '.'
-let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+" Setup coc-yank
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
 " Lexima customizations
 call lexima#add_rule({'char': '*', 'input_after': '*', 'filetype': 'markdown'})
@@ -146,7 +135,7 @@ map <space> /
 map <c-space> ?
 
 " Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
+"" map <silent> <leader><cr> :noh<cr>
 
 " Smart way to move between windows
 map <C-j> <C-W>j
@@ -204,9 +193,9 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " How can I close vim if the only window left open is a NERDTree?
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Toggle NerdTree with 'return' key
-map \ :NERDTreeToggle<CR>
+map <return> :NERDTreeToggle<CR>
 " Move to NerdTree to the right
-"let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinPos = "right"
 
 
 " BufTabLine

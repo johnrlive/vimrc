@@ -1,0 +1,48 @@
+{
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "css",
+    "markdown",
+    "javascript",
+    "html",
+    "json"
+  ],
+  "coc.source.file.ignoreHidden": false,
+  "git.addGBlameToVirtualText": true,
+  "git.semanticCommit.scope": false,
+  "signature.target": "echo",
+  "diagnostic.format": "%message [%source]",
+  "diagnostic.virtualText": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.separateRelatedInformationAsDiagnostics": true,
+  "suggest.timeout": 5000,
+  "suggest.asciiCharactersOnly": true,
+  "python.formatting.provider": "black",
+  "codeLens.enable": true,
+  "elixirLS.mixEnv": "dev",
+  "elixirLS.mixTarget": "test",
+  "elixirLS.dialyzerEnabled": true,
+  "languageserver": {
+    "elixirLS": {
+      "command": "/absolute/path/to/elixir-ls/release/language_server.sh",
+      "filetypes": [
+        "elixir",
+        "eelixir"
+      ]
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": [
+        "start"
+      ],
+      "filetypes": [
+        "sh"
+      ],
+      "ignoredRootPaths": [
+        "~"
+      ]
+    }
+  }
+}

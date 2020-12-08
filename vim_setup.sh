@@ -19,6 +19,10 @@ rm ~/.vimrc
 echo '====== SYMLINK to ~/.vimrc'
 ln -s ~/vimrc/.vimrc ~/.vimrc
 
+echo '====== symlink'
+ls -s ~/vimrc/.vim/coc-settings.json ~/.vim/coc-settings.json
+
+
 echo '====== Reload ~/.vimrc'
 source ~/.vimrc
 sleep 2
