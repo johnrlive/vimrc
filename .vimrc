@@ -32,16 +32,10 @@ Plug 'romainl/vim-cool'
 " Fuzzy Finder
 "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'wookayin/fzf-ripgrep.vim'
 " Colorschemes
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'liuchengxu/space-vim-dark'
-"Plug 'NLKNguyen/papercolor-theme'
-
-" Use rg for FZF
-if executable('rg')
-  let g:rg_derive_root='true'
-endif
-
 call plug#end()
 
 " Coc Plugin commands to run in vim mode
@@ -109,7 +103,7 @@ let g:deoplete#enable_at_startup = 1
 
 """"""" Key Mappings """"""""
 " Leader Key
-let mapleader = ','
+let mapleader = ' '
 " Fast saving
 nmap <leader>w :w!<cr>
 
@@ -168,20 +162,22 @@ endtry
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 "NerdTREE
-" How can I open a NERDTree automatically when vim starts up if no files were specified?
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" How can I open NERDTree automatically when vim starts up on opening a directory?
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-" How can I close vim if the only window left open is a NERDTree?
+""" How can I open a NERDTree automatically when vim starts up if no files were specified?
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+""" How can I open NERDTree automatically when vim starts up on opening a directory?
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+""" How can I close vim if the only window left open is a NERDTree?
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeMinimalUI = 1
 let NERDTreeWinPos = "right"
 let NERDTreeShowHidden=1
-" Toggle NerdTree with 'return' key
-map <return> :NERDTreeToggle<CR>
-map <Leader>nf :NERDTreeFind<cr>
+" Toggle NerdTree with '\' key
+map \ :NERDTreeToggle<CR>
+" NerdTree FIND with 'return' key
+map <return> :NERDTreeFind<cr>
+
 
 " BufTabLine
 set hidden
@@ -200,7 +196,6 @@ let g:fzf_layout = { 'down': '50%' }
 "  \ 'ctrl+s': 'split',
 "  \ 'ctrl+v': 'vsplit' }
 
-"" RipGrep Settings
 " --column: Show column number
 " --line-number: Show line number
 " --no-heading: Do not show file headings in results
@@ -211,25 +206,11 @@ let g:fzf_layout = { 'down': '50%' }
 " --follow: Follow symlinks
 " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 " --color: Search color options
-"command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+
+"" RipGrep Settings
 " Use RG fro grepping
 "set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
-
-
-" vim-grepper
-"""nnoremap <C-g> :Grepper -tool rg<CR>
-"""nnoremap <leader>g :Grepper -tool rg -noopen<CR>
-" Start searching the word under the cursor:
-"""nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
-"""nmap gs <plug>(GrepperOperator)
-"""xmap gs <plug>(GrepperOperator)
-" Optional. The default behaviour should work for most users.
-"let g:grepper               = {}
-"let g:grepper.tools         = ['git', 'ag', 'rg']
-"let g:grepper.jump          = 1
-"let g:grepper.next_tool     = '<leader>g'
-"let g:grepper.simple_prompt = 1
-"let g:grepper.quickfix      = 0
 
 " Undo
 nnoremap <C-z> :undo<Cr>
