@@ -30,7 +30,7 @@ Plug 'vim-test/vim-test'
 "Search
 Plug 'romainl/vim-cool'
 " Fuzzy Finder
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " Colorschemes
 Plug 'rafi/awesome-vim-colorschemes'
@@ -76,6 +76,7 @@ set autoindent                 " Indent according to previous line.
 set backspace=indent,eol,start " Make backspace work as you would expect.
 set ruler                      " Show current position
 set cursorline
+set splitbelow splitright       " Splits open to the right and below
 
 " appearance
 set showmatch                  " Show matching brackets when text indicator is over the
@@ -188,13 +189,18 @@ nnoremap <C-N> :bnext<CR>
 "nnoremap <C-P> :bprev<CR>
 
 " Fuzzy Finder Mappings
+set rtp+=/usr/local/opt/fzf
 nnoremap <C-p> :Files<Cr>
 nnoremap <C-b> :Buffers<Cr>
 nnoremap <C-g> :GFiles<Cr>
 nnoremap <C-f> :Rg! 
+let g:fzf_layout = { 'down': '50%' }
+"let g:fzf_action = {
+"  \ 'ctrl+t': 'tab split',
+"  \ 'ctrl+s': 'split',
+"  \ 'ctrl+v': 'vsplit' }
 
-" RipGrep Settings
-set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
+"" RipGrep Settings
 " --column: Show column number
 " --line-number: Show line number
 " --no-heading: Do not show file headings in results
@@ -206,6 +212,9 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
 " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 " --color: Search color options
 "command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+" Use RG fro grepping
+"set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
+
 
 " vim-grepper
 """nnoremap <C-g> :Grepper -tool rg<CR>
