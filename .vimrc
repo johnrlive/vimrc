@@ -30,7 +30,7 @@ Plug 'vim-test/vim-test'
 "Search
 Plug 'romainl/vim-cool'
 " Fuzzy Finder
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'wookayin/fzf-ripgrep.vim'
 " Colorschemes

@@ -69,9 +69,19 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  zsh-syntax-highlighting
+  history-substring-search
+  zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
+
+# https://github.com/zsh-users/zsh-completions
+autoload -Uz compinit 
+compinit 
+
 
 # User configuration
 
@@ -100,25 +110,16 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 ## Load custom ZSH profile
-if [ -f ~/.dotfiles/.zsh_profile ]; then
-    source ~/.dotfiles/.zsh_profile
-else
-    print "404: ~/.dotfiles/.zsh_profile not found."
-fi
+#if [ -f ~/.dotfiles/.zsh_profile ]; then
+#    source ~/.dotfiles/.zsh_profile
+#else
+#    print "404: ~/.dotfiles/.zsh_profile not found."
+#fi
 
 ## ASDF Language manager
 . $HOME/.asdf/asdf.sh
 # append completions to fpath
 fpath=(${ASDF_DIR}/completions $fpath)
-# initialise completions with ZSH's compinit
-autoload -Uz compinit
-compinit
-
-
-plugins=(
-  git
-  zsh-syntax-highlighting
-)
 
 ## FZF configurations
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -140,8 +141,19 @@ alias vv="vim ~/.vimrc"
 alias sz="source ~/.zshrc"
 alias zz="vim ~/.zshrc"
 alias ll="ls -lat"
-
+# https://dev.to/matrixersp/how-to-use-fzf-with-ripgrep-to-selectively-ignore-vcs-files-4e27
+alias fzfi='rg --files --hidden --follow --no-ignore-vcs -g "!{node_modules,.git}" | fzf'
+alias vifi='vim $(fzfi)'
+# DB
+alias ppsql="sudo -u postgres psql"
+# Python
+alias pm="python manage.py"
+alias pmrs="python manage.py runserver 0.0.0.0:8000"
 # For local
 export PATH=$HOME/.local/bin:$PATH
 
+# ZSH plugins
+#source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # https://github.com/zsh-users/zsh-syntax-highlighting
+#source zsh-history-substring-search.zsh # https://github.com/zsh-users/zsh-history-substring-search
+#source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh # https://github.com/zsh-users/zsh-autosuggestions
 

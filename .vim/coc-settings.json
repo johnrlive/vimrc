@@ -1,4 +1,5 @@
 {
+  "coc.preferences.triggerAfterInsertEnter": false,
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": [
