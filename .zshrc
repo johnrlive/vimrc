@@ -136,8 +136,9 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 #export FZF_DEFAULT_COMMAND="rg --files --no-ignore --hidden --follow --glob '!.git/*'"
 
-alias sv="source ~/.vimrc"
+alias v="nvim"
 alias vv="vim ~/.vimrc"
+alias sv="source ~/.vimrc && source ~/.config/nvim/init.vim"
 alias sz="source ~/.zshrc"
 alias zz="vim ~/.zshrc"
 alias ll="ls -lat"
@@ -156,4 +157,7 @@ export PATH=$HOME/.local/bin:$PATH
 #source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # https://github.com/zsh-users/zsh-syntax-highlighting
 #source zsh-history-substring-search.zsh # https://github.com/zsh-users/zsh-history-substring-search
 #source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh # https://github.com/zsh-users/zsh-autosuggestions
+
+eval `ssh-agent`
+ssh-add ~/.ssh/id_github
 
