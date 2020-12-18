@@ -1,3 +1,8 @@
+## ASDF Language manager
+. $HOME/.asdf/asdf.sh
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+
 ## Added custom ZSH Profile ##
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -116,10 +121,6 @@ compinit
 #    print "404: ~/.dotfiles/.zsh_profile not found."
 #fi
 
-## ASDF Language manager
-. $HOME/.asdf/asdf.sh
-# append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
 
 ## FZF configurations
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -137,6 +138,7 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 #export FZF_DEFAULT_COMMAND="rg --files --no-ignore --hidden --follow --glob '!.git/*'"
 
 alias v="nvim"
+alias vi="nvim"
 alias vv="vim ~/.vimrc"
 alias sv="source ~/.vimrc && source ~/.config/nvim/init.vim"
 alias sz="source ~/.zshrc"
@@ -152,6 +154,7 @@ alias pm="python manage.py"
 alias pmrs="python manage.py runserver 0.0.0.0:8000"
 # For local
 export PATH=$HOME/.local/bin:$PATH
+#export PATH=/usr/bin:$PATH
 
 # ZSH plugins
 #source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # https://github.com/zsh-users/zsh-syntax-highlighting
@@ -160,4 +163,22 @@ export PATH=$HOME/.local/bin:$PATH
 
 eval `ssh-agent`
 ssh-add ~/.ssh/id_github
+
+#CUSTOM_NVIM_PATH=/usr/local/bin/nvim.appimage
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/home/admin/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/home/admin/miniconda3/etc/profile.d/conda.sh" ]; then
+#        . "/home/admin/miniconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/home/admin/miniconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+# <<< conda initialize <<<
 
