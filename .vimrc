@@ -85,6 +85,7 @@ set switchbuf=usetab           " on open buffer search everywhere
 set hid                        " A buffer becomes when it is abandon
 set cmdheight=2                " Height of the command bar
 set foldcolumn=0               " Add a bit extra margin to the left
+set number                     " Shows numbers
 
 " searching
 set hlsearch                   " highlight search items
@@ -248,6 +249,7 @@ nmap  -  <Plug>(choosewin)
 
 "tmux
 set t_Co=256
+
 
 "==== Theme Settings - Oceanic
 colorscheme molokai

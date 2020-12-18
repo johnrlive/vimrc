@@ -147,6 +147,8 @@ alias ll="ls -lat"
 # https://dev.to/matrixersp/how-to-use-fzf-with-ripgrep-to-selectively-ignore-vcs-files-4e27
 alias fzfi='rg --files --hidden --follow --no-ignore-vcs -g "!{node_modules,.git}" | fzf'
 alias vifi='vim $(fzfi)'
+# tmux
+alias tmux="TERM=screen-256color-bce tmux"
 # DB
 alias ppsql="sudo -u postgres psql"
 # Python
@@ -165,7 +167,7 @@ eval `ssh-agent`
 ssh-add ~/.ssh/id_github
 
 #CUSTOM_NVIM_PATH=/usr/local/bin/nvim.appimage
-source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
