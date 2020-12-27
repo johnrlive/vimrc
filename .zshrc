@@ -166,6 +166,9 @@ export PATH=$HOME/.local/bin:$PATH
 eval `ssh-agent`
 ssh-add ~/.ssh/id_github
 
+export EDITOR='nvim'
+export VISUAL='nvim'
+
 #CUSTOM_NVIM_PATH=/usr/local/bin/nvim.appimage
 #source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
