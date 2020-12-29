@@ -20,7 +20,8 @@ Plug 'cohama/lexima.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'alvan/vim-closetag'	              	    " Auto close (X)HTML tags
 Plug 'othree/html5.vim'                       " HTML5 omnicomplete and syntax
-"Plug 'plasticboy/vim-markdown'                " Markdown support
+Plug 'tpope/vim-rails'                        " Rails Support
+Plug 'plasticboy/vim-markdown'                " Markdown support
 "Plug 'JamshedVesuna/vim-markdown-preview'     " Preview markdown
 " Elixir Support
 Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
