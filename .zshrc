@@ -75,7 +75,19 @@ ZSH_THEME="af-magic"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  asdf
+  fzf
   git
+  git-extras
+  mix
+  postgres
+  rails
+  rake
+  ruby
+  ssh-agent
+  tmux
+  vscode
+  zsh-interactive-cd
   zsh-syntax-highlighting
   history-substring-search
   zsh-autosuggestions
