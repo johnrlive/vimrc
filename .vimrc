@@ -106,7 +106,7 @@ let g:deoplete#enable_at_startup = 1
 
 """"""" Key Mappings """"""""
 " Leader Key
-let mapleader = ' '
+let mapleader = ','
 " Fast saving
 nmap <leader>w :w!<cr>
 
@@ -131,9 +131,6 @@ map <leader>bd :Bclose<cr>:tabclose<cr>gT
 
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
-
-map <leader>l :bnext<cr>
-map <leader>h :bprevious<cr>
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
@@ -184,8 +181,8 @@ map <return> :NERDTreeFind<cr>
 
 " BufTabLine
 set hidden
-nnoremap <C-N> :bnext<CR>
-"nnoremap <C-P> :bprev<CR>
+nnoremap <C-]> :bnext<CR>
+nnoremap <C-[> :bprev<CR>
 
 " Fuzzy Finder Mappings
 set rtp+=/usr/local/opt/fzf
