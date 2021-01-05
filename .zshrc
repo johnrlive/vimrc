@@ -1,3 +1,5 @@
+[ -f $HOME/.zshrc.local ] && . $HOME/.zshrc.local
+
 ## ASDF Language manager
 . $HOME/.asdf/asdf.sh
 # append completions to fpath
@@ -198,4 +200,5 @@ export VISUAL='nvim'
 #fi
 #unset __conda_setup
 # <<< conda initialize <<<
+
 

@@ -181,8 +181,8 @@ map <return> :NERDTreeFind<cr>
 
 " BufTabLine
 set hidden
-nnoremap <C-]> :bnext<CR>
-nnoremap <C-[> :bprev<CR>
+"nnoremap <C-N> :bnext<CR>
+nnoremap <C-o> :bprev<CR>
 
 " Fuzzy Finder Mappings
 set rtp+=/usr/local/opt/fzf
