@@ -1,6 +1,7 @@
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 " Declare the list of plugins.
+Plug 'wincent/vim-clipper'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ap/vim-buftabline'
 Plug 't9md/vim-choosewin'
@@ -107,6 +108,10 @@ let g:deoplete#enable_at_startup = 1
 """"""" Key Mappings """"""""
 " Leader Key
 let mapleader = ','
+
+" Yank using clipper
+nnoremap <leader>y :call system('nc -U ~/.clipper.sock', @0)<CR>
+
 " Fast saving
 nmap <leader>w :w!<cr>
 

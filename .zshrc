@@ -183,6 +183,9 @@ ssh-add ~/.ssh/id_github
 export EDITOR='nvim'
 export VISUAL='nvim'
 
+# in the case of Clipper listening on a UNIX domain socket at ~/.clipper.sock):
+alias clip="nc -U ~/.clipper.sock"
+
 #CUSTOM_NVIM_PATH=/usr/local/bin/nvim.appimage
 #source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
