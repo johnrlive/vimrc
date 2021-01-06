@@ -1,5 +1,3 @@
-[ -f $HOME/.zshrc.local ] && . $HOME/.zshrc.local
-
 ## ASDF Language manager
 . $HOME/.asdf/asdf.sh
 # append completions to fpath
@@ -83,9 +81,6 @@ plugins=(
   git-extras
   mix
   postgres
-  rails
-  rake
-  ruby
   ssh-agent
   tmux
   vscode
@@ -172,6 +167,11 @@ alias pmrs="python manage.py runserver 0.0.0.0:8000"
 export PATH=$HOME/.local/bin:$PATH
 #export PATH=/usr/bin:$PATH
 
+# in the case of Clipper listening on a UNIX domain socket at ~/.clipper.sock):
+#alias clip="nc -U ~/.clipper.sock"
+alias clip="socat - UNIX-CLIENT:~/.clipper.sock"
+
+
 # ZSH plugins
 #source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # https://github.com/zsh-users/zsh-syntax-highlighting
 #source zsh-history-substring-search.zsh # https://github.com/zsh-users/zsh-history-substring-search
@@ -183,8 +183,8 @@ ssh-add ~/.ssh/id_github
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-# in the case of Clipper listening on a UNIX domain socket at ~/.clipper.sock):
-alias clip="nc -U ~/.clipper.sock"
+# Load zshrc.local
+[ -f $HOME/.zshrc.local ] && . $HOME/.zshrc.local
 
 #CUSTOM_NVIM_PATH=/usr/local/bin/nvim.appimage
 #source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

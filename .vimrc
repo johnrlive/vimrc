@@ -110,7 +110,8 @@ let g:deoplete#enable_at_startup = 1
 let mapleader = ','
 
 " Yank using clipper
-nnoremap <leader>y :call system('nc -U ~/.clipper.sock', @0)<CR>
+" Or, if your version of netcat doesn't have socket support and you want to use socat:
+nnoremap <leader>y :call system('socat - UNIX-CLIENT:~/.clipper.sock', @0)<CR>
 
 " Fast saving
 nmap <leader>w :w!<cr>
