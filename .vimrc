@@ -1,7 +1,7 @@
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 " Declare the list of plugins.
-Plug 'wincent/vim-clipper'
+"Plug 'wincent/vim-clipper'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ap/vim-buftabline'
 Plug 't9md/vim-choosewin'
@@ -111,7 +111,7 @@ let mapleader = ','
 
 " Yank using clipper
 " Or, if your version of netcat doesn't have socket support and you want to use socat:
-nnoremap <leader>y :call system('socat - UNIX-CLIENT:~/.clipper.sock', @0)<CR>
+"nnoremap <leader>y :call system('socat - UNIX-CLIENT:~/.clipper.sock', @0)<CR>
 
 " Fast saving
 nmap <leader>w :w!<cr>

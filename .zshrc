@@ -169,7 +169,7 @@ export PATH=$HOME/.local/bin:$PATH
 
 # in the case of Clipper listening on a UNIX domain socket at ~/.clipper.sock):
 #alias clip="nc -U ~/.clipper.sock"
-alias clip="socat - UNIX-CLIENT:~/.clipper.sock"
+#alias clip="socat - UNIX-CLIENT:~/.clipper.sock"
 
 
 # ZSH plugins
