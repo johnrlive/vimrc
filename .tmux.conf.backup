@@ -1,0 +1,75 @@
+### Key Mappings ###
+
+# better prefix key with 'crtl + a'
+set -g prefix C-a
+bind C-a send-prefix
+# better splitting
+bind \\ split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
+# add binding to reload source file
+bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
+
+# Resize pane shortcuts
+bind -r H resize-pane -L 10
+bind -r J resize-pane -D 10
+bind -r K resize-pane -U 10
+bind -r L resize-pane -R 10
+
+### Theme Settings ###
+
+# less colourful status
+set -g status-bg colour240
+set -g status-fg white
+# Set to login shell
+set -g default-command "/usr/bin/zsh"
+# 256 colors support
+set -g default-terminal "xterm"
+# sane scrolling
+set -g mouse on
+# automatically restore last saved environment
+set -g @continuum-restore 'on'
+# to fix nord powerline 
+set -g @nord_tmux_no_patched_font '1'
+
+# Use vim keybindings in copy mode
+setw -g mode-keys vi
+
+# Clipper, if your version of netcat doesn't have socket support and you want to use socat:
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "socat - UNIX-CLIENT:~/.clipper.sock"
+
+set-option -g default-command "reattach-to-user-namespace -l zsh"
+
+# Or, if your version of netcat doesn't have socket support and you want to use socat:
+#bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "socat - UNIX-CLIENT:~/.clipper.sock"
+
+## https://thoughtbot.com/blog/tmux-copy-paste-on-os-x-a-better-future
+# Setup 'v' to begin selection as in Vim
+#bind-key -t vi-copy v begin-selection
+#bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Update default binding of `Enter` to also use copy-pipe
+#unbind -t vi-copy Enter
+#bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+
+# copy and paste fix - http://www.rushiagr.com/blog/2016/06/16/everything-you-need-to-know-about-tmux-copy-pasting/
+# bind-key -T copy-mode-vi v send-keys -X begin-selection
+# bind-key -T copy-mode-vi y send-keys -X copy-selection
+# bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
+
+# list of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'christoomey/vim-tmux-navigator'
+set -g @plugin 'jimeh/tmux-themepack'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+#set -g @plugin 'jimeh/tmux-themepack'
+#set -g @themepack 'powerline/block/blue'
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+set -g @plugin 'arcticicestudio/nord-tmux'
+
+
+# TMUX plugin manager (keep at the bottom of tmux.conf)
+run -b '~/.tmux/plugins/tpm/tpm'
+
