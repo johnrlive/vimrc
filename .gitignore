@@ -1,3 +1,4 @@
+.zshrc.local
 *.swp
 .DS_Store
 iterm2_themes/.DS_Store
