@@ -42,7 +42,7 @@ call plug#end()
 
 " Coc Plugin commands to run in vim mode
 " :CocInstall coc-prettier
-let g:coc_global_extensions = ['coc-css', 'coc-elixir', 'coc-emmet', 'coc-git', 'coc-html', 'coc-json', 'coc-prettier', 'coc-solargraph', 'coc-stylelint', 'coc-yaml']
+let g:coc_global_extensions = ['coc-pyright', 'coc-css', 'coc-elixir', 'coc-emmet', 'coc-git', 'coc-html', 'coc-json', 'coc-prettier', 'coc-solargraph', 'coc-stylelint', 'coc-yaml']
 
 " Setup Prettier coc plugin
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
